@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>MHWIBuildcrafter</title>
+
+    <h1>MHW Buildcraft Helper</h1>
+  </head>
+
+  <body>
+    <!-- rank selectors -->
+    <div class="container">
+      <button class="rankselect lr">Low Rank</button>
+      <button class="rankselect hr">High Rank</button>
+      <button class="rankselect mr clicked">Master Rank</button>
+
+      <!-- weapontype selector -->
+      <div class="dropdown">
+        <button class="dropdownbutton">Select a Weapon Type</button>
+        <div class="dropdowncontent selectweapon">
+          <div class="row">
+            <div class="column">
+              <p class="gear">GreatSword</p>
+              <p class="gear">Sword & Shield</p>
+              <p class="gear">Hammer</p>
+              <p class="gear">Lance</p>
+              <p class="gear">Switch Axe</p>
+              <p class="gear">Insect Glaive</p>
+              <p class="gear">Heavy Bowgun</p>
+            </div>
+            <div class="column">
+              <p class="gear">Long Sword</p>
+              <p class="gear">Dual Blades</p>
+              <p class="gear">Hunting Horn</p>
+              <p class="gear">Gunlance</p>
+              <p class="gear">Charge Blade</p>
+              <p class="gear">Light Bowgun</p>
+              <p class="gear">Bow</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="container buildcrafter" style="visibility: hidden">
+      <!-- specific weapon selector -->
+      <div class="dropdown">
+        <button class="dropdownbutton differentweapon">Select a Weapon</button>
+        <div class="dropdowncontent specificweapon">
+          <div class="row weaponchoices"></div>
+        </div>
+      </div>
+
+      <!-- Armor selectors -->
+      <div class="dropdown">
+        <button class="dropdownbutton">Select Head Armor</button>
+        <div class="dropdowncontent specificgear">
+          <div class="row helm gearchoice"></div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdownbutton">Select Chest Armor</button>
+        <div class="dropdowncontent specificgear">
+          <div class="row chest gearchoice"></div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdownbutton">Select Arms Armor</button>
+        <div class="dropdowncontent specificgear">
+          <div class="row arms gearchoice"></div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdownbutton">Select Waist Armor</button>
+        <div class="dropdowncontent specificgear">
+          <div class="row waist gearchoice"></div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdownbutton">Select Leg Armor</button>
+        <div class="dropdowncontent specificgear">
+          <div class="row legs gearchoice"></div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 33%)">
+        <div class="currentstatdisplay">
+          <div>
+            Current Weapon :
+            <div class="currentweapon stat">-</div>
+          </div>
+          <div>
+            Raw Weapon Damage :
+            <div class="currentrawdamage stat">-</div>
+          </div>
+          <div>
+            Element/Status Type :
+            <div class="currenteletype stat">-</div>
+          </div>
+          <div>
+            Element/Status Amount :
+            <div class="currenteledamage stat">-</div>
+          </div>
+          <div>
+            Sharpness :
+            <div class="currentsharpness stat">-</div>
+          </div>
+          <div>
+            Affinity :
+            <div class="currentaffinity stat">-</div>
+          </div>
+          <div>
+            ElderSeal :
+            <div class="currentelderseal stat">-</div>
+          </div>
+        </div>
+
+        <div class="currentstatdisplay" style="flex: 1">
+          <div>
+            Deco slots Weapon :
+            <div class="weaponslots">
+              - <br />
+              - <br />
+              - <br />
+            </div>
+          </div>
+          <div>
+            Deco slots Helm :
+            <div class="helmslots">
+              - <br />
+              - <br />
+              - <br />
+            </div>
+          </div>
+          <div>
+            Deco slots Chest :
+            <div class="chestslots">
+              - <br />
+              - <br />
+              - <br />
+            </div>
+          </div>
+          <div>
+            Deco slots Arms :
+            <div class="armsslots">
+              - <br />
+              - <br />
+              - <br />
+            </div>
+          </div>
+          <div>
+            Deco slots Waist :
+            <div class="waistslots">
+              - <br />
+              - <br />
+              - <br />
+            </div>
+          </div>
+          <div>
+            Deco slots Legs :
+            <div class="legsslots">
+              - <br />
+              - <br />
+              - <br />
+            </div>
+          </div>
+        </div>
+
+        <div class="currentstatdisplay">
+          <div>
+            Active Skills :
+            <div class="activeskills"></div>
+          </div>
+          <div>
+            <br />Set Bonuses :
+            <div class="setbonuses"></div>
+          </div>
+        </div>
+
+        <div class="currentstatdisplay">
+          <div>
+            Helm :
+            <div class="currenthelm stat">-</div>
+          </div>
+          <div>
+            Chestpiece :
+            <div class="currentchest stat">-</div>
+          </div>
+          <div>
+            Arms :
+            <div class="currentarms stat">-</div>
+          </div>
+          <div>
+            Waist :
+            <div class="currentwaist stat">-</div>
+          </div>
+          <div>
+            Legs :
+            <div class="currentlegs stat">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="armordata.js"></script>
+    <script src="weapondata.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
