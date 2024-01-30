@@ -255,6 +255,7 @@ function displayStats() {
 // Gets the data of the selected value from a dropdownlist and sends it to display
 function selectSpecificWeapon(event) {
   chosenWeapon = event.target.value;
+  document.querySelector(".differentweapon").innerHTML = chosenWeapon.name;
   displayStats();
 }
 
@@ -318,8 +319,6 @@ function toggleExplanation(event) {
       if (event.target.id == "Focus") {
         for (let wpnType in skillList.Focus) {
           if (wpnType == selectedWeaponType) {
-            console.log(Focus);
-
             explainBox.innerHTML = skillList.Focus[wpnType];
           }
         }
