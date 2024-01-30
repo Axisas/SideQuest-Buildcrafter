@@ -1,1 +1,2 @@
-My personal SideQuest for this semester: A web-application that helps with buildcrafting in Monster Hunter World: Iceborne.
+# MHWIBuildcrafter
+Personal SideQuest for TNW 2023-2024

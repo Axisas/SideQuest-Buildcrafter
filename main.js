@@ -30,14 +30,12 @@ let slots;
 let activeSkills = {};
 let activeSetBonuses = {};
 
-// TO-DO:
-// Let the rank selection do things <- not relevant for this prototype, maybe later
-// make decoration data.js
-// OPTIONAL: Add specifics of skills and stuff, this is probs happening in the figma? design
-// Make a toggle for agitator/weakness exploit, and see how it affects each stat ->
-// Make crit eye change affinity <---- PRIORITY
-// have a place that has the data of all skills and their effects
-// Not happening but would be cool, preview of weapons and armor in the dropdown to see what you are selecting
+let explainBox = document.querySelector(".skillexplain");
+explainBox.style.display = "none";
+// Hides the box when the user clicks on it
+explainBox.addEventListener("click", function () {
+  explainBox.style.display = "none";
+});
 
 function toggleDropdown(event) {
   this.classList.toggle("open");
@@ -216,7 +214,9 @@ function displayStats() {
     availableSlots.helmSlots = chosenHelm.slots;
     slots = availableSlots.helmSlots;
     updateGearSlots("helmslots");
+
     document.querySelector(".currenthelm").innerHTML = chosenHelm.name;
+    document.querySelector(".helmdropdown").innerHTML = chosenHelm.name;
   }
   if (chosenChest) {
     availableSlots.chestSlots = chosenChest.slots;
@@ -224,6 +224,7 @@ function displayStats() {
     updateGearSlots("chestslots");
 
     document.querySelector(".currentchest").innerHTML = chosenChest.name;
+    document.querySelector(".chestdropdown").innerHTML = chosenChest.name;
   }
   if (chosenArms) {
     availableSlots.armsSlots = chosenArms.slots;
@@ -231,6 +232,7 @@ function displayStats() {
     updateGearSlots("armsslots");
 
     document.querySelector(".currentarms").innerHTML = chosenArms.name;
+    document.querySelector(".armsdropdown").innerHTML = chosenArms.name;
   }
   if (chosenWaist) {
     availableSlots.waistSlots = chosenWaist.slots;
@@ -238,6 +240,7 @@ function displayStats() {
     updateGearSlots("waistslots");
 
     document.querySelector(".currentwaist").innerHTML = chosenWaist.name;
+    document.querySelector(".waistdropdown").innerHTML = chosenWaist.name;
   }
   if (chosenLegs) {
     availableSlots.legsSlots = chosenLegs.slots;
@@ -245,6 +248,7 @@ function displayStats() {
     updateGearSlots("legsslots");
 
     document.querySelector(".currentlegs").innerHTML = chosenLegs.name;
+    document.querySelector(".legsdropdown").innerHTML = chosenLegs.name;
   }
 }
 
@@ -308,6 +312,21 @@ function selectSpecificGear(event) {
   }
 }
 
+function toggleExplanation(event) {
+  for (let skill in skillList) {
+    if (skill == event.target.id) {
+      explainBox.innerHTML = skillList[skill];
+    }
+  }
+
+  // Toggle visibility of the explainbox, hiding it happens in line 37
+  if (explainBox.style.display === "none") {
+    explainBox.style.display = "block";
+  }
+
+  // explainBox.innerHTML = event.target.id;
+}
+
 function showActiveSkills(gear, oldgear) {
   // activeSkills is an object which stores all active skills as "skillname: skilllvl"
 
@@ -347,9 +366,15 @@ function showActiveSkills(gear, oldgear) {
     }
   }
   let activeSkillsText = document.querySelector(".activeskills");
+  activeSkillsText.addEventListener("click", function (event) {
+    if (event.target.classList.contains("bonus-span")) {
+      toggleExplanation(event);
+    }
+  });
+
   activeSkillsText.innerHTML = "";
   for (skills in activeSkills) {
-    activeSkillsText.innerHTML += `${skills} : ${activeSkills[skills]} <br>`;
+    activeSkillsText.innerHTML += `<span class="bonus-span" id="${skills}">${skills} : ${activeSkills[skills]} </span><br>`;
   }
 
   // Does the exact same, but now for setbonuses
@@ -385,9 +410,17 @@ function showActiveSkills(gear, oldgear) {
       }
     }
   }
+
   let activeBonusesText = document.querySelector(".setbonuses");
+
+  activeBonusesText.addEventListener("click", function (event) {
+    if (event.target.classList.contains("bonus-span")) {
+      toggleExplanation(event);
+    }
+  });
   activeBonusesText.innerHTML = "";
   for (bonuses in activeSetBonuses) {
-    activeBonusesText.innerHTML += `${bonuses} : ${activeSetBonuses[bonuses][1]} / ${activeSetBonuses[bonuses][0]} <br>`;
+    activeBonusesText.innerHTML += `<span class="bonus-span" id="${bonuses}">${bonuses} : ${activeSetBonuses[bonuses][1]} 
+    / ${activeSetBonuses[bonuses][0]} </span><br>`;
   }
 }

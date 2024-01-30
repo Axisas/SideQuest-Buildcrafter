@@ -98,8 +98,24 @@ body {
   border: 1px solid black;
   display: block;
   flex: 1;
+  position: relative;
+  /* user-select: none; */
 }
 
 .stat {
   float: right;
+}
+
+.skillexplain {
+  background-color: white;
+  font-family: sans-serif;
+  font-size: clamp(12px, 18px, 1.5vw);
+  position: absolute;
+  z-index: 5;
+  border: 1px solid black;
+  left: 2.5%;
+  bottom: 2%;
+  width: 90%;
+  min-height: 10%;
+  padding: 2.5%;
 }

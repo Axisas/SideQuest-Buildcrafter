@@ -56,40 +56,41 @@
 
       <!-- Armor selectors -->
       <div class="dropdown">
-        <button class="dropdownbutton">Select Head Armor</button>
+        <button class="dropdownbutton helmdropdown">Select Head Armor</button>
         <div class="dropdowncontent specificgear">
           <div class="row helm gearchoice"></div>
         </div>
       </div>
 
       <div class="dropdown">
-        <button class="dropdownbutton">Select Chest Armor</button>
+        <button class="dropdownbutton chestdropdown">Select Chest Armor</button>
         <div class="dropdowncontent specificgear">
           <div class="row chest gearchoice"></div>
         </div>
       </div>
 
       <div class="dropdown">
-        <button class="dropdownbutton">Select Arms Armor</button>
+        <button class="dropdownbutton armsdropdown">Select Arms Armor</button>
         <div class="dropdowncontent specificgear">
           <div class="row arms gearchoice"></div>
         </div>
       </div>
 
       <div class="dropdown">
-        <button class="dropdownbutton">Select Waist Armor</button>
+        <button class="dropdownbutton waistdropdown">Select Waist Armor</button>
         <div class="dropdowncontent specificgear">
           <div class="row waist gearchoice"></div>
         </div>
       </div>
 
       <div class="dropdown">
-        <button class="dropdownbutton">Select Leg Armor</button>
+        <button class="dropdownbutton legsdropdown">Select Leg Armor</button>
         <div class="dropdowncontent specificgear">
           <div class="row legs gearchoice"></div>
         </div>
       </div>
 
+      <!-- Stat display screens -->
       <div style="display: grid; grid-template-columns: repeat(3, 33%)">
         <div class="currentstatdisplay">
           <div>
@@ -182,6 +183,8 @@
             <br />Set Bonuses :
             <div class="setbonuses"></div>
           </div>
+          <!-- Box that contains the text which explains the chosen skill -->
+          <div class="skillexplain"></div>
         </div>
 
         <div class="currentstatdisplay">
@@ -212,5 +215,6 @@
     <script src="armordata.js"></script>
     <script src="weapondata.js"></script>
     <script src="main.js"></script>
+    <script src="skillexplanation.js"></script>
   </body>
 </html>
