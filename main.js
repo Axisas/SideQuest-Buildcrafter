@@ -153,7 +153,8 @@ function selectWeaponType(event) {
       weaponObjects.forEach((obj) => {
         availableWeapons.push(obj);
       });
-      document.querySelector(".buildcrafter").style.visibility = "visible";
+      let containers = document.querySelectorAll(".container");
+      containers.forEach((element) => (element.style.visibility = "visible"));
       fillWeaponDropDown();
       fillArmorDropDowns();
     }
@@ -215,7 +216,7 @@ function displayStats() {
     slots = availableSlots.helmSlots;
     updateGearSlots("helmslots");
 
-    document.querySelector(".currenthelm").innerHTML = chosenHelm.name;
+    // document.querySelector(".currenthelm").innerHTML = chosenHelm.name;
     document.querySelector(".helmdropdown").innerHTML = chosenHelm.name;
   }
   if (chosenChest) {
@@ -223,7 +224,7 @@ function displayStats() {
     slots = availableSlots.chestSlots;
     updateGearSlots("chestslots");
 
-    document.querySelector(".currentchest").innerHTML = chosenChest.name;
+    // document.querySelector(".currentchest").innerHTML = chosenChest.name;
     document.querySelector(".chestdropdown").innerHTML = chosenChest.name;
   }
   if (chosenArms) {
@@ -231,7 +232,7 @@ function displayStats() {
     slots = availableSlots.armsSlots;
     updateGearSlots("armsslots");
 
-    document.querySelector(".currentarms").innerHTML = chosenArms.name;
+    // document.querySelector(".currentarms").innerHTML = chosenArms.name;
     document.querySelector(".armsdropdown").innerHTML = chosenArms.name;
   }
   if (chosenWaist) {
@@ -239,7 +240,7 @@ function displayStats() {
     slots = availableSlots.waistSlots;
     updateGearSlots("waistslots");
 
-    document.querySelector(".currentwaist").innerHTML = chosenWaist.name;
+    // document.querySelector(".currentwaist").innerHTML = chosenWaist.name;
     document.querySelector(".waistdropdown").innerHTML = chosenWaist.name;
   }
   if (chosenLegs) {
@@ -247,7 +248,7 @@ function displayStats() {
     slots = availableSlots.legsSlots;
     updateGearSlots("legsslots");
 
-    document.querySelector(".currentlegs").innerHTML = chosenLegs.name;
+    // document.querySelector(".currentlegs").innerHTML = chosenLegs.name;
     document.querySelector(".legsdropdown").innerHTML = chosenLegs.name;
   }
 }
