@@ -315,9 +315,11 @@ function selectSpecificGear(event) {
 function toggleExplanation(event) {
   for (let skill in skillList) {
     if (skill == event.target.id) {
-      if (event.target.id == Focus) {
+      if (event.target.id == "Focus") {
         for (let wpnType in skillList.Focus) {
           if (wpnType == selectedWeaponType) {
+            console.log(Focus);
+
             explainBox.innerHTML = skillList.Focus[wpnType];
           }
         }
